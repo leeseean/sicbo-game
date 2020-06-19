@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "egret_icon_png,description_json,diceResultDetail_png,diceResultDetail_ten_png,nameLogo_svg,saizi_1_png,saizi_2_png,saizi_3_png,saizi_4_png,saizi_5_png,saizi_6_png,shaibao_png,balance_svg,betMoney_png,chips_svg,desktop_png,dice_svg,dice_small_svg,diceCountDown_png,diceCountDownNum_png,diceCup_png,diceGameBg_png,diceLight_png",
+			"keys": "egret_icon_png,description_json,diceResultDetail_png,diceResultDetail_ten_png,nameLogo_svg,saizi_1_png,saizi_2_png,saizi_3_png,saizi_4_png,saizi_5_png,saizi_6_png,shaibao_png,balance_svg,betMoney_png,chips_svg,desktop_png,dice_svg,dice_small_svg,diceCountDown_png,diceCountDownNum_png,diceCup_png,diceGameBg_png,diceLight_png,chips_json",
 			"name": "preload"
 		}
 	],
@@ -120,6 +120,12 @@
 			"name": "diceLight_png",
 			"type": "image",
 			"url": "assets/diceLight.png"
+		},
+		{
+			"name": "chips_json",
+			"type": "sheet",
+			"url": "assets/chips/chips.json",
+			"subkeys": "chips_1000,chips_1000d,chips_5000,chips_5000d,chips_1,chips_1d,chips_5,chips_5d,chips_10,chips_10d,chips_20,chips_20d,chips_50,chips_50d,chips_100,chips_100d"
 		}
 	]
 }
