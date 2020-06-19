@@ -12,6 +12,7 @@
 		"libs/modules/mouse/mouse.js"
 	],
 	"game": [
+		"bin-debug/ChipsConfig.js",
 		"bin-debug/Desk.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",

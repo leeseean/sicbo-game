@@ -14,6 +14,8 @@ var Utils = (function () {
         result.texture = texture;
         return result;
     };
+    Utils.createBitmapBySheetName = function (name) {
+    };
     Utils.drawRect = function (color, arr) {
         var shape = new egret.Shape();
         shape.graphics.beginFill(color);

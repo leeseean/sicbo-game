@@ -18,6 +18,7 @@ var Desk = (function (_super) {
     Desk.prototype.onAddToStage = function () {
         console.log(this);
         this.drawDesk();
+        this.drawChips();
     };
     Desk.prototype.drawDesk = function () {
         var desk = Utils.createBitmapByName('desktop_png');
@@ -40,6 +41,17 @@ var Desk = (function (_super) {
             }
             var roundRect = Utils.drawRoundRect(0x0000ff, SicboConfig[key]);
             this.addChild(roundRect);
+        }
+    };
+    Desk.prototype.drawChips = function () {
+        for (var key in ChipsConfig) {
+            var config = ChipsConfig[key];
+            var chip1 = Utils.createBitmapByName("chips_json#" + key);
+            chip1.width = config[2];
+            chip1.height = config[3];
+            chip1.x = config[0];
+            chip1.y = config[1];
+            this.addChild(chip1);
         }
     };
     return Desk;
