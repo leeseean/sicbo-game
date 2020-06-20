@@ -45,7 +45,6 @@ class Desk extends egret.DisplayObjectContainer {
             chip.touchEnabled = true;
             this.addChild(chip);
             chip.addEventListener(egret.TouchEvent.TOUCH_TAP, (event) => {
-                console.log(event);
                 if (yPlusedChip !== chip) {
                     chip.y = chip.y + yPlus;
                     chip.texture = RES.getRes(`chips_json#${key.slice(0, -1)}`);
@@ -55,9 +54,7 @@ class Desk extends egret.DisplayObjectContainer {
                     }
                     yPlusedChip = chip
                     yPlusedChip.key = key
-                } else {
-
-                }
+                } 
             }, this);
         }
     }
