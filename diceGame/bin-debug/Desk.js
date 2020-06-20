@@ -35,24 +35,46 @@ var Desk = (function (_super) {
         // desk.addEventListener(egret.TouchEvent.TOUCH_MOVE, (e) => console.log(e), this);
         // desk.addEventListener(egret.TouchEvent.TOUCH_TAP, (e) => console.log(e), this);
         // desk.addEventListener(mouse.MouseEvent.MOUSE_OUT, (e) => console.log(e), this);
-        console.log(SicboConfig);
         for (var key in SicboConfig) {
             if (SicboConfig[key].length === 0) {
                 continue;
             }
-            var roundRect = Utils.drawRoundRect(0x0000ff, SicboConfig[key]);
+            var roundRect = Utils.drawRoundRect(0x000000, SicboConfig[key]);
+            roundRect.alpha = 0;
             this.addChild(roundRect);
         }
     };
     Desk.prototype.drawChips = function () {
-        for (var key in ChipsConfig) {
+        var yPlus = -20;
+        var yPlusedChip;
+        var _loop_1 = function (key) {
             var config = ChipsConfig[key];
-            var chip1 = Utils.createBitmapByName("chips_json#" + key);
-            chip1.width = config[2];
-            chip1.height = config[3];
-            chip1.x = config[0];
-            chip1.y = config[1];
-            this.addChild(chip1);
+            var chip = Utils.createBitmapByName("chips_json#" + key);
+            chip.width = config[2];
+            chip.height = config[3];
+            chip.x = config[0];
+            chip.y = config[1];
+            chip.touchEnabled = true;
+            this_1.addChild(chip);
+            chip.addEventListener(egret.TouchEvent.TOUCH_TAP, function (event) {
+                console.log(event);
+                if (yPlusedChip !== chip) {
+                    chip.y = chip.y + yPlus;
+                    chip.texture = RES.getRes("chips_json#" + key.slice(0, -1));
+                    if (yPlusedChip) {
+                        yPlusedChip.y = yPlusedChip.y - yPlus;
+                        yPlusedChip.texture = RES.getRes("chips_json#" + yPlusedChip.key);
+                    }
+                    yPlusedChip = chip;
+                    yPlusedChip.key = key;
+                }
+                else {
+                }
+            }, this_1);
+        };
+        var this_1 = this;
+        for (var key in ChipsConfig) {
+            _loop_1(key);
         }
     };
     // 画盅

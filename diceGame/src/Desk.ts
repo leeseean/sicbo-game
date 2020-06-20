@@ -23,24 +23,42 @@ class Desk extends egret.DisplayObjectContainer {
         // desk.addEventListener(egret.TouchEvent.TOUCH_MOVE, (e) => console.log(e), this);
         // desk.addEventListener(egret.TouchEvent.TOUCH_TAP, (e) => console.log(e), this);
         // desk.addEventListener(mouse.MouseEvent.MOUSE_OUT, (e) => console.log(e), this);
-        console.log(SicboConfig)
         for (let key in SicboConfig) {
             if (SicboConfig[key].length === 0) {
                 continue;
             }
-            const roundRect = Utils.drawRoundRect(0x0000ff, SicboConfig[key]);
+            const roundRect = Utils.drawRoundRect(0x000000, SicboConfig[key]);
+            roundRect.alpha = 0;
             this.addChild(roundRect);
         }
     }
     private drawChips() {
+        const yPlus = -20;
+        let yPlusedChip: any;
         for (let key in ChipsConfig) {
             const config = ChipsConfig[key]
-            const chip1 = Utils.createBitmapByName(`chips_json#${key}`);
-            chip1.width = config[2];
-            chip1.height = config[3];
-            chip1.x = config[0];
-            chip1.y = config[1];
-            this.addChild(chip1);
+            const chip = Utils.createBitmapByName(`chips_json#${key}`);
+            chip.width = config[2];
+            chip.height = config[3];
+            chip.x = config[0];
+            chip.y = config[1];
+            chip.touchEnabled = true;
+            this.addChild(chip);
+            chip.addEventListener(egret.TouchEvent.TOUCH_TAP, (event) => {
+                console.log(event);
+                if (yPlusedChip !== chip) {
+                    chip.y = chip.y + yPlus;
+                    chip.texture = RES.getRes(`chips_json#${key.slice(0, -1)}`);
+                    if (yPlusedChip) {
+                        yPlusedChip.y = yPlusedChip.y - yPlus;
+                        yPlusedChip.texture = RES.getRes(`chips_json#${yPlusedChip.key}`);
+                    }
+                    yPlusedChip = chip
+                    yPlusedChip.key = key
+                } else {
+
+                }
+            }, this);
         }
     }
     // 画盅

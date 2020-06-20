@@ -10,10 +10,6 @@ class Utils {
         return result;
     }
 
-    static createBitmapBySheetName(name: string) {
-        
-    }
-
     static drawRect(color: number, arr: Array<number>): egret.Shape {
         const shape: egret.Shape = new egret.Shape();
         shape.graphics.beginFill(color);
