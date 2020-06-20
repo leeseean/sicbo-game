@@ -1,115 +1,20 @@
 {
 	"groups": [
 		{
-			"keys": "egret_icon_png,description_json,diceResultDetail_png,diceResultDetail_ten_png,nameLogo_svg,saizi_1_png,saizi_2_png,saizi_3_png,saizi_4_png,saizi_5_png,saizi_6_png,shaibao_png,balance_svg,betMoney_png,chips_svg,desktop_png,dice_svg,dice_small_svg,diceCountDown_png,diceCountDownNum_png,diceCup_png,diceGameBg_png,diceLight_png,chips_json",
+			"keys": "description_json,desktop_png,diceGameBg_png,diceLight_png,chips_json,cup_json,icons_json,dices_json",
 			"name": "preload"
 		}
 	],
 	"resources": [
-		{
-			"name": "egret_icon_png",
-			"type": "image",
-			"url": "assets/egret_icon.png"
-		},
 		{
 			"name": "description_json",
 			"type": "json",
 			"url": "config/description.json"
 		},
 		{
-			"name": "diceResultDetail_png",
-			"type": "image",
-			"url": "assets/diceResultDetail.png"
-		},
-		{
-			"name": "diceResultDetail_ten_png",
-			"type": "image",
-			"url": "assets/diceResultDetail_ten.png"
-		},
-		{
-			"name": "nameLogo_svg",
-			"type": "image",
-			"url": "assets/nameLogo.svg"
-		},
-		{
-			"name": "saizi_1_png",
-			"type": "image",
-			"url": "assets/saizi_1.png"
-		},
-		{
-			"name": "saizi_2_png",
-			"type": "image",
-			"url": "assets/saizi_2.png"
-		},
-		{
-			"name": "saizi_3_png",
-			"type": "image",
-			"url": "assets/saizi_3.png"
-		},
-		{
-			"name": "saizi_4_png",
-			"type": "image",
-			"url": "assets/saizi_4.png"
-		},
-		{
-			"name": "saizi_5_png",
-			"type": "image",
-			"url": "assets/saizi_5.png"
-		},
-		{
-			"name": "saizi_6_png",
-			"type": "image",
-			"url": "assets/saizi_6.png"
-		},
-		{
-			"name": "shaibao_png",
-			"type": "image",
-			"url": "assets/shaibao.png"
-		},
-		{
-			"name": "balance_svg",
-			"type": "image",
-			"url": "assets/balance.svg"
-		},
-		{
-			"name": "betMoney_png",
-			"type": "image",
-			"url": "assets/betMoney.png"
-		},
-		{
-			"name": "chips_svg",
-			"type": "image",
-			"url": "assets/chips.svg"
-		},
-		{
 			"name": "desktop_png",
 			"type": "image",
 			"url": "assets/desktop.png"
-		},
-		{
-			"name": "dice_svg",
-			"type": "image",
-			"url": "assets/dice.svg"
-		},
-		{
-			"name": "dice_small_svg",
-			"type": "image",
-			"url": "assets/dice_small.svg"
-		},
-		{
-			"name": "diceCountDown_png",
-			"type": "image",
-			"url": "assets/diceCountDown.png"
-		},
-		{
-			"name": "diceCountDownNum_png",
-			"type": "image",
-			"url": "assets/diceCountDownNum.png"
-		},
-		{
-			"name": "diceCup_png",
-			"type": "image",
-			"url": "assets/diceCup.png"
 		},
 		{
 			"name": "diceGameBg_png",
@@ -126,6 +31,24 @@
 			"type": "sheet",
 			"url": "assets/chips/chips.json",
 			"subkeys": "chips_1000,chips_1000d,chips_5000,chips_5000d,chips_1,chips_1d,chips_5,chips_5d,chips_10,chips_10d,chips_20,chips_20d,chips_50,chips_50d,chips_100,chips_100d"
+		},
+		{
+			"name": "cup_json",
+			"type": "sheet",
+			"url": "assets/cup/cup.json",
+			"subkeys": "dicing1,dicing5,dicing4,dicing2,dice4,dice1,dice6,dice5,dice3,dice2,diceCup,dicing3"
+		},
+		{
+			"name": "icons_json",
+			"type": "sheet",
+			"url": "assets/icons/icons.json",
+			"subkeys": "betMoney,balance,nameLogo"
+		},
+		{
+			"name": "dices_json",
+			"type": "sheet",
+			"url": "assets/dices/dices.json",
+			"subkeys": "dice3,dice4,dice5,dice6,dice1,dice2"
 		}
 	]
 }
