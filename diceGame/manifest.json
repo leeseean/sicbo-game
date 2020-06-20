@@ -13,6 +13,7 @@
 	],
 	"game": [
 		"bin-debug/ChipsConfig.js",
+		"bin-debug/CupConfig.js",
 		"bin-debug/Desk.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
