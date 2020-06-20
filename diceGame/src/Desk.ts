@@ -7,6 +7,7 @@ class Desk extends egret.DisplayObjectContainer {
         console.log(this)
         this.drawDesk()
         this.drawChips()
+        this.drawCup()
     }
     private drawDesk() {
         const desk = Utils.createBitmapByName('desktop_png');
@@ -42,4 +43,34 @@ class Desk extends egret.DisplayObjectContainer {
             this.addChild(chip1);
         }
     }
+    // 画盅
+    private drawCup() {
+        const container: egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
+        container.x = 895;
+        container.y = 112;
+        this.addChild(container);
+        const cup = Utils.createBitmapByName('cup_json#diceCup');
+        cup.width = 126;
+        cup.height = 120;
+        container.addChild(cup);
+        const diceLeft = Utils.createBitmapByName('cup_json#dice1');
+        diceLeft.width = 18;
+        diceLeft.height = 18;
+        diceLeft.x = 36;
+        diceLeft.y = 45;
+        const diceCenter = Utils.createBitmapByName('cup_json#dice2');
+        diceCenter.width = 18;
+        diceCenter.height = 18;
+        diceCenter.x = 58;
+        diceCenter.y = 45;
+        const diceRight = Utils.createBitmapByName('cup_json#dice3');
+        diceRight.width = 18;
+        diceRight.height = 18;
+        diceRight.x = 80;
+        diceRight.y = 45;
+        container.addChild(diceLeft);
+        container.addChild(diceCenter);
+        container.addChild(diceRight);
+    }
+
 }
