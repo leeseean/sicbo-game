@@ -15,6 +15,7 @@
 		"bin-debug/ChipsConfig.js",
 		"bin-debug/CupConfig.js",
 		"bin-debug/Desk.js",
+		"bin-debug/GlobalData.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",

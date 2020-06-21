@@ -28,6 +28,33 @@ var Utils = (function () {
         shape.graphics.endFill();
         return shape;
     };
+    Utils.toast = function (text, container) {
+        var wrapper = new egret.DisplayObjectContainer();
+        var shp = new egret.Shape();
+        var panel = new egret.TextField();
+        panel.text = text;
+        // panel.textAlign = egret.HorizontalAlign.CENTER;
+        // panel.verticalAlign = egret.VerticalAlign.MIDDLE;
+        var paddingLeft = 10;
+        var paddingUp = 20;
+        wrapper.width = panel.width + paddingLeft * 2;
+        wrapper.height = panel.height + paddingUp * 2;
+        // 居中
+        panel.x = paddingLeft;
+        panel.y = paddingUp;
+        shp.graphics.beginFill(0x00000);
+        shp.graphics.drawRoundRect(0, 0, wrapper.width, wrapper.height, 20, 20);
+        shp.graphics.endFill();
+        wrapper.addChild(shp);
+        wrapper.addChild(panel);
+        wrapper.x = container.width / 2 - wrapper.width / 2;
+        wrapper.y = container.height / 2 - wrapper.height / 2;
+        wrapper.zIndex = 1000;
+        container.addChild(wrapper);
+        egret.setTimeout(function () {
+            container.removeChild(wrapper);
+        }, container, 1000);
+    };
     return Utils;
 }());
 __reflect(Utils.prototype, "Utils");

@@ -4,11 +4,11 @@ class Desk extends egret.DisplayObjectContainer {
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this)
     }
     private onAddToStage() {
-        console.log(this)
         this.drawDesk()
         this.drawChips()
         this.drawCup()
     }
+    // 画桌面
     private drawDesk() {
         const desk = Utils.createBitmapByName('desktop_png');
         this.addChild(desk);
@@ -29,12 +29,33 @@ class Desk extends egret.DisplayObjectContainer {
             }
             const roundRect = Utils.drawRoundRect(0x000000, SicboConfig[key]);
             roundRect.alpha = 0;
+            roundRect.touchEnabled = true;
             this.addChild(roundRect);
+            roundRect.addEventListener(egret.TouchEvent.TOUCH_TAP, (event) => {
+                if (!GlobalData.activeChipKey) {
+                    Utils.toast('请点击底部选择一个筹码', this);
+                } else {
+                    // 飞出筹码
+                    const chip = Utils.createBitmapByName(`chips_json#${GlobalData.activeChipKey.slice(0, -1)}`);
+                    const config = ChipsConfig[GlobalData.activeChipKey];
+                    chip.width = config[2];
+                    chip.height = config[3];
+                    chip.x = config[0];
+                    chip.y = config[1];
+                    const point: egret.Point = this.globalToLocal(event.stageX, event.stageY);
+                    this.addChild(chip);
+                    egret.Tween.get(chip).to({
+                        x: SicboConfig[key][0] + (SicboConfig[key][2] - chip.width) / 2,
+                        y: SicboConfig[key][1] + (SicboConfig[key][3] - chip.height) / 2,
+                    }, 360).call(() => { });
+                }
+            }, this);
         }
     }
+    // 画底部飞盘
     private drawChips() {
         const yPlus = -20;
-        let yPlusedChip: any;
+        let yPlusedChip;
         for (let key in ChipsConfig) {
             const config = ChipsConfig[key]
             const chip = Utils.createBitmapByName(`chips_json#${key}`);
@@ -50,11 +71,11 @@ class Desk extends egret.DisplayObjectContainer {
                     chip.texture = RES.getRes(`chips_json#${key.slice(0, -1)}`);
                     if (yPlusedChip) {
                         yPlusedChip.y = yPlusedChip.y - yPlus;
-                        yPlusedChip.texture = RES.getRes(`chips_json#${yPlusedChip.key}`);
+                        yPlusedChip.texture = RES.getRes(`chips_json#${GlobalData.activeChipKey}`);
                     }
                     yPlusedChip = chip
-                    yPlusedChip.key = key
-                } 
+                    GlobalData.activeChipKey = key
+                }
             }, this);
         }
     }
